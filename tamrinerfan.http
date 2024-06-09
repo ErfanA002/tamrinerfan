@@ -1,0 +1,6 @@
+@tamrinerfan_HostAddress = http://localhost:5091
+
+GET {{tamrinerfan_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
