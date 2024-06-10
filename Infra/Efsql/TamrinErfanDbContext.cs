@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using tamrinerfan.Domain;
-namespace tamrinerfan.DataAccess;
+using tamrinerfan.Core.Domain.Person;
+using tamrinerfan.Core.Domain.Person.Person;
+
+namespace tamrinerfan.Infra.Efsql;
 public class TamrinErfanDbContext : DbContext
 {
     public TamrinErfanDbContext(DbContextOptions options) : base(options)

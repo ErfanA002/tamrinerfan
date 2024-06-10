@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace tamrinerfan.Domain;
+namespace tamrinerfan.Core.Domain.Person.Person;
 public class City
 {
     [Key]
     public Guid Id { get; set; }
     public string NameCity { get; set; }
-    public Province Province { get; set; }
+    //public Province Province { get; set; }
 }

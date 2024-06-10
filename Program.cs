@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using tamrinerfan.DataAccess;
+using tamrinerfan.Infra.Efsql;
 
 namespace tamrinerfan;
 public class Program
@@ -32,8 +32,7 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
-
+        
         app.MapControllers();
 
         app.Run();

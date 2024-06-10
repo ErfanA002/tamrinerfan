@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using tamrinerfan.Domain;
+using tamrinerfan.Core.Domain.Person.Person;
+
 namespace tamrinerfan.Controllers;
 
 [Route("api/[controller]")]
@@ -10,7 +11,9 @@ public class PersonController : ControllerBase
     public Person index()
     {
         var e = new Person();
+
         e.FirstName = "Test";
+
         e.LastName = "Test";
 
         return e;
