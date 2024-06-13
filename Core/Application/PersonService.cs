@@ -1,4 +1,5 @@
-﻿using tamrinerfan.Core.Domain.Person.Person;
+﻿using tamrinerfan.Controllers.DTOs;
+using tamrinerfan.Core.Domain.Person.Person;
 using tamrinerfan.Core.DomainServices;
 using tamrinerfan.Core.IRepositorys;
 namespace tamrinerfan.Core.Application;
@@ -14,6 +15,7 @@ public class PersonService : IPersonService
     public void CreatePerson(Person person)
     {
         _personRepository.CreatePerson(person);
+        _personRepository.saveChange();
     }
 
     public List<Person> GetAllPersons()
@@ -26,13 +28,15 @@ public class PersonService : IPersonService
         return _personRepository.GetPersonById(id);
     }
 
-    public void UpdatePerson(Person person, Guid id)
+    public void UpdatePerson(Person person)
     {
-        _personRepository.UpdatePerson(person,id);
+        _personRepository.UpdatePerson(person);
+        _personRepository.saveChange();
     }
 
     public void DeletePerson(Guid id)
     {
         _personRepository.DeletePerson(id);
+        _personRepository.saveChange();
     }
 }

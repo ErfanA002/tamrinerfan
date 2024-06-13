@@ -10,7 +10,7 @@ public class PersonController : ControllerBase
 {
     private readonly IPersonService _personService;
 
-    private PersonController(IPersonService personService)
+    public PersonController(IPersonService personService)
     {
         _personService = personService;
     }
@@ -51,9 +51,9 @@ public class PersonController : ControllerBase
         _personService.DeletePerson(id);
     }
     
-    [HttpPut("UpdatePerson/{id}")]
-    public void UpdatePerson(Person person, Guid id)
+    [HttpPut("UpdatePerson")]
+    public void UpdatePerson(Person p)
     {
-        _personService.UpdatePerson(person,id);
+        _personService.UpdatePerson(p);
     }
 }

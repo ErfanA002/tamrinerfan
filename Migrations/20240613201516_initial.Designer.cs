@@ -6,15 +6,14 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using tamrinerfan.Infra.Context;
-using tamrinerfan.Infra.Efsql;
 
 #nullable disable
 
 namespace tamrinerfan.Migrations
 {
     [DbContext(typeof(TamrinErfanDbContext))]
-    [Migration("20240612192205_Initial")]
-    partial class Initial
+    [Migration("20240613201516_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,12 +35,7 @@ namespace tamrinerfan.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ProvinceId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProvinceId");
 
                     b.ToTable("Citys");
                 });
@@ -64,9 +58,8 @@ namespace tamrinerfan.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phones")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Phone")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -79,21 +72,13 @@ namespace tamrinerfan.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Provinces");
-                });
-
-            modelBuilder.Entity("tamrinerfan.Core.Domain.Person.Person.City", b =>
-                {
-                    b.HasOne("tamrinerfan.Core.Domain.Person.Province", null)
-                        .WithMany("Citys")
-                        .HasForeignKey("ProvinceId");
-                });
-
-            modelBuilder.Entity("tamrinerfan.Core.Domain.Person.Province", b =>
-                {
-                    b.Navigation("Citys");
                 });
 #pragma warning restore 612, 618
         }

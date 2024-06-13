@@ -6,7 +6,7 @@ public class PersonRepository : IPersonRepository
 {
     private readonly TamrinErfanDbContext _dbContext;
 
-    private PersonRepository(TamrinErfanDbContext dbContext)
+    public PersonRepository(TamrinErfanDbContext dbContext)
     {
         _dbContext = dbContext;
     }
@@ -27,9 +27,8 @@ public class PersonRepository : IPersonRepository
         return res;
     }
 
-    public void UpdatePerson(Person person,Guid id)
+    public void UpdatePerson(Person person)
     {
-        var p = _dbContext.Persons.Single(x => x.Id == id);
         _dbContext.Persons.Update(person);
     }
 
@@ -37,5 +36,10 @@ public class PersonRepository : IPersonRepository
     {
         Person myperson = _dbContext.Persons.Single(x => x.Id == id);
         _dbContext.Persons.Remove(myperson);
+    }
+
+    public void saveChange()
+    {
+        _dbContext.SaveChanges();
     }
 }
