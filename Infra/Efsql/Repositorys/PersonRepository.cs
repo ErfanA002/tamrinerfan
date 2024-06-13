@@ -1,9 +1,10 @@
 ﻿using tamrinerfan.Core.Domain.Person.Person;
 using tamrinerfan.Core.IRepositorys;
+using tamrinerfan.Infra.Context;
 namespace tamrinerfan.Infra.Efsql.Repositorys;
 public class PersonRepository : IPersonRepository
 {
-    private TamrinErfanDbContext _dbContext;
+    private readonly TamrinErfanDbContext _dbContext;
 
     private PersonRepository(TamrinErfanDbContext dbContext)
     {
@@ -35,6 +36,6 @@ public class PersonRepository : IPersonRepository
     public void DeletePerson(Guid id)
     {
         Person myperson = _dbContext.Persons.Single(x => x.Id == id);
-        _dbContext.Persons.Update(myperson);
+        _dbContext.Persons.Remove(myperson);
     }
 }

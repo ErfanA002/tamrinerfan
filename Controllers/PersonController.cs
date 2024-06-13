@@ -8,15 +8,15 @@ namespace tamrinerfan.Controllers;
 [ApiController]
 public class PersonController : ControllerBase
 {
-    private IPersonService _personService;
+    private readonly IPersonService _personService;
 
     private PersonController(IPersonService personService)
     {
         _personService = personService;
     }
 
-    [HttpGet]
-    public string index()
+    [HttpGet("Home")]
+    public string Home()
     {
         return "salam erfan";
     }

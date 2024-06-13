@@ -2,7 +2,7 @@
 using tamrinerfan.Core.Domain.Person;
 using tamrinerfan.Core.Domain.Person.Person;
 
-namespace tamrinerfan.Infra.Efsql;
+namespace tamrinerfan.Infra.Context;
 public class TamrinErfanDbContext : DbContext
 {
     public TamrinErfanDbContext(DbContextOptions options) : base(options)

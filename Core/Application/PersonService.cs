@@ -4,29 +4,35 @@ using tamrinerfan.Core.IRepositorys;
 namespace tamrinerfan.Core.Application;
 public class PersonService : IPersonService
 {
-    private IPersonRepository personRepository;
+    private readonly IPersonRepository _personRepository;
+
+    public PersonService(IPersonRepository personRepository)
+    {
+        _personRepository = personRepository;
+    }
+
     public void CreatePerson(Person person)
     {
-        personRepository.CreatePerson(person);
+        _personRepository.CreatePerson(person);
     }
 
     public List<Person> GetAllPersons()
     {
-        return personRepository.GetAllPersons();
+        return _personRepository.GetAllPersons();
     }
 
     public Person GetPersonById(Guid id)
     {
-        return personRepository.GetPersonById(id);
+        return _personRepository.GetPersonById(id);
     }
 
     public void UpdatePerson(Person person, Guid id)
     {
-        personRepository.UpdatePerson(person,id);
+        _personRepository.UpdatePerson(person,id);
     }
 
     public void DeletePerson(Guid id)
     {
-        personRepository.DeletePerson(id);
+        _personRepository.DeletePerson(id);
     }
 }

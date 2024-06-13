@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using tamrinerfan.Infra.Efsql;
+using tamrinerfan.Infra.Context;
+using tamrinerfan.IOC;
 
 namespace tamrinerfan;
 public class Program
@@ -11,6 +12,9 @@ public class Program
         // Add services to the container.
 
         builder.Services.AddControllers();
+
+        builder.Services.AddDependencyInjection();
+
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -19,7 +23,7 @@ public class Program
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("ErfanDb"));
         });
-
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
