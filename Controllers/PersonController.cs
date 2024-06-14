@@ -15,32 +15,26 @@ public class PersonController : ControllerBase
         _personService = personService;
     }
 
-    [HttpGet("Home")]
-    public string Home()
-    {
-        return "salam erfan";
-    }
-
     [HttpGet("GetPersonById/{personId}")]
     public Person GetPersonById(Guid personId)
     {
         return _personService.GetPersonById(personId);
     }
 
-    [HttpGet("GetAllPersons/{selectedPage}/{itemsInPage}")]
-    public IEnumerable<Person> GetAllPersons(int selectedPage,int itemsInPage)
+    [HttpGet("GetAllPersons/{numberpage}/{pagesize}")]
+    public IEnumerable<Person> GetAllPersons(int numberpage,int pagesize)
     {
-        var pageSize = itemsInPage;
-
-        var skip = (selectedPage - 1) * pageSize;
-
         var data = _personService.GetAllPersons();
 
         var countData = data.Count();
 
-        var totalpage = countData / pageSize;
+        var Pagesize = pagesize;
+        
+        var totalpage = countData / Pagesize;
 
-        var take = Math.Min(countData - skip, pageSize);
+        var skip = (numberpage - 1) * Pagesize;
+        
+        var take = Math.Min(countData - skip, Pagesize);
 
         var pagination = data.Skip(skip).Take(take);
 
@@ -56,6 +50,7 @@ public class PersonController : ControllerBase
             LastName = personDTO.LastName,
             Address = personDTO.Address,
         };
+        
         _personService.CreatePerson(person);
     }
     
