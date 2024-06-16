@@ -1,6 +1,5 @@
 ﻿using tamrinerfan.Core.Domain.Entites.Person;
 using tamrinerfan.Core.Domain.IRepositorys;
-
 namespace tamrinerfan.Infra.Efsql.Repositorys;
 public class PersonRepository : IPersonRepository
 {
@@ -16,9 +15,29 @@ public class PersonRepository : IPersonRepository
         _dbContext.Persons.Add(person);
     }
 
-    public List<Person> GetAllPersons()
+    public IEnumerable<Person> GetPersons(int numberpage, int pagesize)
     {
-        return _dbContext.Persons.ToList();
+        try
+        {
+            var countData = _dbContext.Persons.Count();
+
+            var Pagesize = pagesize;
+
+            var totalpage = countData / Pagesize;
+
+            var skip = (numberpage - 1) * Pagesize;
+
+            var take = Math.Min(countData - skip, Pagesize);
+
+            var pagination = _dbContext.Persons.Skip(skip).Take(take);
+
+            return pagination;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw ex;
+        }
     }
 
     public Person GetPersonById(Guid id)

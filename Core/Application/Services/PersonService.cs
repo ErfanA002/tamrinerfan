@@ -1,4 +1,5 @@
-﻿using tamrinerfan.Core.Domain.Entites.Person;
+﻿using Microsoft.EntityFrameworkCore;
+using tamrinerfan.Core.Domain.Entites.Person;
 using tamrinerfan.Core.Domain.IRepositorys;
 using tamrinerfan.Core.Domain.IServices;
 
@@ -18,9 +19,9 @@ public class PersonService : IPersonService
         _personRepository.saveChange();
     }
 
-    public List<Person> GetAllPersons()
+    public IEnumerable<Person> GetPersons(int numberpage, int pagesize)
     {
-        return _personRepository.GetAllPersons();
+        return _personRepository.GetPersons(numberpage,pagesize);
     }
 
     public Person GetPersonById(Guid id)

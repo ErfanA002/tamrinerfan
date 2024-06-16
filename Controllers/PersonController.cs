@@ -22,24 +22,10 @@ public class PersonController : ControllerBase
         return _personService.GetPersonById(personId);
     }
 
-    [HttpGet("GetAllPersons/{numberpage}/{pagesize}")]
-    public IEnumerable<Person> GetAllPersons(int numberpage,int pagesize)
+    [HttpGet("GetPersons/{numberpage}/{pagesize}")]
+    public IEnumerable<Person> GetPersons(int numberpage,int pagesize)
     {
-        var data = _personService.GetAllPersons();
-
-        var countData = data.Count();
-
-        var Pagesize = pagesize;
-        
-        var totalpage = countData / Pagesize;
-
-        var skip = (numberpage - 1) * Pagesize;
-        
-        var take = Math.Min(countData - skip, Pagesize);
-
-        var pagination = data.Skip(skip).Take(take);
-
-        return pagination;
+        return _personService.GetPersons(numberpage, pagesize);
     }
     
     [HttpPost("CreatePerson")]
