@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using tamrinerfan.Infra.Context;
+using tamrinerfan.Infra.Efsql;
 using tamrinerfan.IOC;
 
 namespace tamrinerfan;

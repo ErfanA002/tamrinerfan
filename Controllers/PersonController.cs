@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using tamrinerfan.Controllers.DTOs;
+using tamrinerfan.Core.Domain.IServices;
 using tamrinerfan.Core.Domain.Person.Person;
-using tamrinerfan.Core.DomainServices;
+
 namespace tamrinerfan.Controllers;
 
 [Route("api/[controller]")]

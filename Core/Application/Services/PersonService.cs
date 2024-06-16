@@ -1,8 +1,8 @@
-﻿using tamrinerfan.Controllers.DTOs;
+﻿using tamrinerfan.Core.Domain.IRepositorys;
+using tamrinerfan.Core.Domain.IServices;
 using tamrinerfan.Core.Domain.Person.Person;
-using tamrinerfan.Core.DomainServices;
-using tamrinerfan.Core.IRepositorys;
-namespace tamrinerfan.Core.Application;
+
+namespace tamrinerfan.Core.Application.Services;
 public class PersonService : IPersonService
 {
     private readonly IPersonRepository _personRepository;

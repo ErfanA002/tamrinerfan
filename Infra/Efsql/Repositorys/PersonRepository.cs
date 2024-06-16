@@ -1,6 +1,6 @@
-﻿using tamrinerfan.Core.Domain.Person.Person;
-using tamrinerfan.Core.IRepositorys;
-using tamrinerfan.Infra.Context;
+﻿using tamrinerfan.Core.Domain.IRepositorys;
+using tamrinerfan.Core.Domain.Person.Person;
+
 namespace tamrinerfan.Infra.Efsql.Repositorys;
 public class PersonRepository : IPersonRepository
 {

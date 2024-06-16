@@ -1,6 +1,6 @@
-﻿using tamrinerfan.Core.Application;
-using tamrinerfan.Core.DomainServices;
-using tamrinerfan.Core.IRepositorys;
+﻿using tamrinerfan.Core.Application.Services;
+using tamrinerfan.Core.Domain.IRepositorys;
+using tamrinerfan.Core.Domain.IServices;
 using tamrinerfan.Infra.Efsql.Repositorys;
 namespace tamrinerfan.IOC
 {
