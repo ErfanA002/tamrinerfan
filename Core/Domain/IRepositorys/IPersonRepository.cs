@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using tamrinerfan.Core.Domain.Entites.Person;
-
+﻿using tamrinerfan.Core.Domain.Entites.Person;
 namespace tamrinerfan.Core.Domain.IRepositorys;
 public interface IPersonRepository
 {
