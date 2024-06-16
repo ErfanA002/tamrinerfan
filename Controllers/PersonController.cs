@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using tamrinerfan.Controllers.DTOs;
+using tamrinerfan.Core.Domain.Entites.Person;
 using tamrinerfan.Core.Domain.IServices;
-using tamrinerfan.Core.Domain.Person.Person;
 
 namespace tamrinerfan.Controllers;
 

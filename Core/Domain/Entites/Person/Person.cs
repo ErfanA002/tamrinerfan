@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace tamrinerfan.Core.Domain.Person.Person;
+namespace tamrinerfan.Core.Domain.Entites.Person;
 public class Person
 {
     [Key]

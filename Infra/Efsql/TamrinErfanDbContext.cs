@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using tamrinerfan.Core.Domain.Person;
-using tamrinerfan.Core.Domain.Person.Person;
+using tamrinerfan.Core.Domain.Entites.Person;
 
 namespace tamrinerfan.Infra.Efsql;
 public class TamrinErfanDbContext : DbContext

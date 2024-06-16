@@ -1,6 +1,6 @@
-﻿using tamrinerfan.Core.Domain.IRepositorys;
+﻿using tamrinerfan.Core.Domain.Entites.Person;
+using tamrinerfan.Core.Domain.IRepositorys;
 using tamrinerfan.Core.Domain.IServices;
-using tamrinerfan.Core.Domain.Person.Person;
 
 namespace tamrinerfan.Core.Application.Services;
 public class PersonService : IPersonService

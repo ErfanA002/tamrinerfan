@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace tamrinerfan.Core.Domain.Person;
+
+namespace tamrinerfan.Core.Domain.Entites.Person;
 public class Province
 {
     [Key]
